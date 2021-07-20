@@ -6,7 +6,7 @@ from statistics import mean
 
 
 #path to folder containing images
-ImageFolder = '/Users/m./Documents/SOFTWARE DEV/THANDI/Exif pull/ImageFolder'
+ImageFolder = ''
 
 # inittialise array to store long/lat data
 latDegData = []
