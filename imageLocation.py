@@ -6,7 +6,7 @@ from statistics import mean
 
 
 #path to folder containing images
-ImageFolder = ''
+ImageFolder = "!path!"
 
 # inittialise array to store long/lat data
 latDegData = []
