@@ -80,7 +80,7 @@ meanLongSeconds = str(round(mean(longSecondsData),2))
 #compile google maps friendly output
 print(meanLatDeg+"°"+ meanLatMin+ "'" + meanLatSeconds+ '"S '+ meanLongDeg+"°"+ meanLongMin+ "'" + meanLongSeconds+ '"E')
 
-#stat
+#basic stats
 print("Processed:" + str(numProcessed))
 print("Unprocessd: " + str(numUnprocessed))
 print("% missed: " + str(numUnprocessed/numProcessed))
