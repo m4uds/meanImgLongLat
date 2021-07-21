@@ -6,7 +6,7 @@ from statistics import mean
 
 
 #path to folder containing images
-ImageFolder = "!path!"
+ImageFolder = '/Users/m./Documents/SOFTWARE DEV/THANDI/Exif pull/ImageFolder'
 
 # inittialise array to store long/lat data
 latDegData = []
@@ -16,10 +16,15 @@ longDegData = []
 longMinData = []
 longSecondsData = []
 
+numProcessed = 0
+numUnprocessed = 0
+
 #iterate through dir containing IMG's
 for image in os.listdir(ImageFolder):
     
-    #check if image or video file
+    numProcessed = numProcessed + 1
+
+    #check if image
     if image.endswith(".HEIC") or image.endswith(".jpg") or image.endswith(".png") or image.endswith(".tif") or image.endswith(".mov"):
         
         imageObject = open(ImageFolder +"/"+ image, 'rb')
@@ -58,23 +63,27 @@ for image in os.listdir(ImageFolder):
             longMinData.append(int(longMin))
             longSecondsData.append(float(longSeconds))
         except:
-            print(image + " |-----x---x-----| ERROR")
+            numUnprocessed = numUnprocessed + 1
         
 
 # calcutae mean
-meanLatDeg = str(mean(latDegData))
-meanLatMin = str(mean(latMinData))
-meanLatSeconds = str(mean(latSecondsData))
+meanLatDeg = str(int(round(mean(latDegData),0)))
+meanLatMin = str(int(round(mean(latMinData),0)))
+meanLatSeconds = str(round(mean(latSecondsData),2))
 
-meanLongDeg = str(mean(longDegData))
-meanLongMin = str(mean(longMinData))
-meanLongSeconds = str(mean(longSecondsData))
+meanLongDeg = str(int(round(mean(longDegData),0)))
+meanLongMin = str(int(round(mean(longMinData),0)))
+meanLongSeconds = str(round(mean(longSecondsData),2))
+
+
 
 #compile google maps friendly output
 print(meanLatDeg+"°"+ meanLatMin+ "'" + meanLatSeconds+ '"S '+ meanLongDeg+"°"+ meanLongMin+ "'" + meanLongSeconds+ '"E')
 
-
-
+#stat
+print("Processed:" + str(numProcessed))
+print("Unprocessd: " + str(numUnprocessed))
+print("% missed: " + str(numUnprocessed/numProcessed))
 
 
 
