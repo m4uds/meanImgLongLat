@@ -58,7 +58,7 @@ for image in os.listdir(ImageFolder):
             longMinData.append(int(longMin))
             longSecondsData.append(float(longSeconds))
         except:
-            print(image + " |-----x---x-----| KeyError: 'GPS GPSLatitude'")
+            print(image + " |-----x---x-----| ERROR")
         
 
 # calcutae mean
