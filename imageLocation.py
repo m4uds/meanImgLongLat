@@ -19,8 +19,8 @@ longSecondsData = []
 #iterate through dir containing IMG's
 for image in os.listdir(ImageFolder):
     
-    #check if image
-    if image.endswith(".HEIC") or image.endswith(".jpg") or image.endswith(".png") or image.endswith(".tif"):
+    #check if image or video file
+    if image.endswith(".HEIC") or image.endswith(".jpg") or image.endswith(".png") or image.endswith(".tif") or image.endswith(".mov"):
         
         imageObject = open(ImageFolder +"/"+ image, 'rb')
         tags = exifread.process_file(imageObject)
